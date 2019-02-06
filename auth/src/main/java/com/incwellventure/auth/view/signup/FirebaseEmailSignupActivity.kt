@@ -9,12 +9,12 @@ import android.text.TextUtils
 import android.text.TextWatcher
 import android.util.Patterns
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.incwellventure.auth.AuthUser
 import com.incwellventure.auth.Constant
 import com.incwellventure.auth.R
+import com.incwellventure.auth.utils.SnackbarUtils.Companion.notifyUser
 import kotlinx.android.synthetic.main.activity_firebase_email_signup.*
 
 class FirebaseEmailSignupActivity : AppCompatActivity() {
@@ -69,19 +69,18 @@ class FirebaseEmailSignupActivity : AppCompatActivity() {
                     var user = AuthUser(
                         auth.currentUser?.displayName,
                         auth.currentUser?.email,
-                        auth.currentUser?.photoUrl.toString(),
-                        auth.currentUser?.phoneNumber
+                        auth.currentUser?.photoUrl.toString()
                     )
                     var intent = Intent()
                     intent.putExtra(Constant.AUTH_USER, user)
-                    notifyUser(getString(R.string.msg_signup_success))
+                    notifyUser(this, getString(R.string.msg_signup_success))
 
                     delay {
                         setResult(Activity.RESULT_OK, intent)
                         finish()
                     }
                 } else {
-                    notifyUser(it.exception?.message.toString())
+                    notifyUser(this, it.exception?.message.toString())
                 }
             }
         }
@@ -91,10 +90,6 @@ class FirebaseEmailSignupActivity : AppCompatActivity() {
         Handler().postDelayed({
             execute()
         }, Constant.DELAY)
-    }
-
-    private fun notifyUser(message: String) {
-        Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_LONG).show()
     }
 
     private fun enableSignup() {

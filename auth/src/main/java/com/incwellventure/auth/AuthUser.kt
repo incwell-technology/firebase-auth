@@ -7,6 +7,5 @@ import kotlinx.android.parcel.Parcelize
 data class AuthUser(
     val displayName: String?,
     val email: String?,
-    val photoUrl: String?,
-    val phoneNumber: String?
+    val photoUrl: String?
 ) : Parcelable
