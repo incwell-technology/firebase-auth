@@ -8,4 +8,5 @@
     <string name="err_msg_invalid_password">Password doesn\'t match</string>
     <string name="err_msg_empty_field">%s can\'t be empty</string>
     <string name="msg_signup_success">Congratulation! you have successfully signup.</string>
+    <string name="msg_login_success">Logged in successfully</string>
 </resources>
