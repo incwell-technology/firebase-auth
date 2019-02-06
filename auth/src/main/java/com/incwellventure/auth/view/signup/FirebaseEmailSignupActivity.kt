@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
-import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -65,7 +64,6 @@ class FirebaseEmailSignupActivity : AppCompatActivity() {
                     Toast.makeText(this, "success", Toast.LENGTH_LONG).show()
                 } else {
                     Toast.makeText(this, "Fail", Toast.LENGTH_LONG).show()
-                    Log.d("FirebaseEmailSignupActivity", "error " + it.exception?.message)
                 }
             }
 
