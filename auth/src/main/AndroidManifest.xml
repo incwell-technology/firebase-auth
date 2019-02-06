@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.incwellventure.auth">
     <application>
-        <activity android:name=".FirebaseLoginActivity">
+        <activity android:name=".view.signup.FirebaseEmailSignupActivity">
         </activity>
     </application>
 </manifest>

@@ -1,4 +1,4 @@
-package com.incwellventure.auth
+package com.incwellventure.auth.view.signup
 
 import android.os.Bundle
 import android.text.Editable
@@ -10,13 +10,14 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_firebase_login.*
+import com.incwellventure.auth.R
+import kotlinx.android.synthetic.main.activity_firebase_email_signup.*
 
-class FirebaseLoginActivity : AppCompatActivity() {
+class FirebaseEmailSignupActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_firebase_login)
+        setContentView(R.layout.activity_firebase_email_signup)
         auth = FirebaseAuth.getInstance()
 
         signup.isEnabled = false
@@ -64,7 +65,7 @@ class FirebaseLoginActivity : AppCompatActivity() {
                     Toast.makeText(this, "success", Toast.LENGTH_LONG).show()
                 } else {
                     Toast.makeText(this, "Fail", Toast.LENGTH_LONG).show()
-                    Log.d("FirebaseLoginActivity", "error " + it.exception?.message)
+                    Log.d("FirebaseEmailSignupActivity", "error " + it.exception?.message)
                 }
             }
 
