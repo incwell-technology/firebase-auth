@@ -1,13 +1,15 @@
 package com.incwellventure.auth
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
-import android.util.Log
 import android.util.Patterns
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_firebase_login.*
@@ -61,14 +63,29 @@ class FirebaseLoginActivity : AppCompatActivity() {
                 password.editText?.text.toString().trim()
             ).addOnCompleteListener {
                 if (it.isSuccessful) {
-                    Toast.makeText(this, "success", Toast.LENGTH_LONG).show()
+                    var user = AuthUser(
+                        auth.currentUser?.displayName,
+                        auth.currentUser?.email,
+                        auth.currentUser?.photoUrl.toString(),
+                        auth.currentUser?.phoneNumber
+                    )
+                    var intent = Intent()
+                    intent.putExtra(Constant.AUTH_USER, user)
+                    notifyUser(getString(R.string.msg_signup_success))
+                    Handler().postDelayed({
+                        setResult(Activity.RESULT_OK, intent)
+                        finish()
+                    }, 1000)
+
                 } else {
-                    Toast.makeText(this, "Fail", Toast.LENGTH_LONG).show()
-                    Log.d("FirebaseLoginActivity", "error " + it.exception?.message)
+                    notifyUser(it.exception?.message.toString())
                 }
             }
-
         }
+    }
+
+    private fun notifyUser(message: String) {
+        Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_LONG).show()
     }
 
     private fun enableSignup() {
