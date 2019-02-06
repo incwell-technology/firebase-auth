@@ -1,22 +1,27 @@
-package com.incwellventure.auth
+package com.incwellventure.auth.view.signup
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
-import android.util.Log
 import android.util.Patterns
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_firebase_login.*
+import com.incwellventure.auth.AuthUser
+import com.incwellventure.auth.Constant
+import com.incwellventure.auth.R
+import com.incwellventure.auth.utils.SnackbarUtils.Companion.notifyUser
+import kotlinx.android.synthetic.main.activity_firebase_email_signup.*
 
-class FirebaseLoginActivity : AppCompatActivity() {
+class FirebaseEmailSignupActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_firebase_login)
+        setContentView(R.layout.activity_firebase_email_signup)
         auth = FirebaseAuth.getInstance()
 
         signup.isEnabled = false
@@ -61,14 +66,30 @@ class FirebaseLoginActivity : AppCompatActivity() {
                 password.editText?.text.toString().trim()
             ).addOnCompleteListener {
                 if (it.isSuccessful) {
-                    Toast.makeText(this, "success", Toast.LENGTH_LONG).show()
+                    var user = AuthUser(
+                        auth.currentUser?.displayName,
+                        auth.currentUser?.email,
+                        auth.currentUser?.photoUrl.toString()
+                    )
+                    var intent = Intent()
+                    intent.putExtra(Constant.AUTH_USER, user)
+                    notifyUser(this, getString(R.string.msg_signup_success))
+
+                    delay {
+                        setResult(Activity.RESULT_OK, intent)
+                        finish()
+                    }
                 } else {
-                    Toast.makeText(this, "Fail", Toast.LENGTH_LONG).show()
-                    Log.d("FirebaseLoginActivity", "error " + it.exception?.message)
+                    notifyUser(this, it.exception?.message.toString())
                 }
             }
-
         }
+    }
+
+    private fun delay(execute: () -> Unit) {
+        Handler().postDelayed({
+            execute()
+        }, Constant.DELAY)
     }
 
     private fun enableSignup() {

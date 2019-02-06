@@ -1,49 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-        android:id="@+id/container"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:padding="16dp"
-        android:gravity="center"
-        tools:context="com.incwellventure.auth.FirebaseLoginActivity">
-    <com.google.android.material.textfield.TextInputLayout android:id="@+id/email"
-                                                           android:layout_width="match_parent"
-                                                           android:layout_height="wrap_content">
-        <com.google.android.material.textfield.TextInputEditText android:layout_width="match_parent"
-                                                                 android:inputType="text"
-                                                                 android:hint="@string/hint_email"
-                                                                 android:layout_height="wrap_content"/>
+        android:orientation="vertical"
+        tools:context=".view.login.FirebaseLoginActivity">
 
-    </com.google.android.material.textfield.TextInputLayout>
+    <ImageView android:layout_width="48dp"
+               android:layout_height="48dp"
+               android:layout_gravity="center_horizontal"/>
 
-    <com.google.android.material.textfield.TextInputLayout android:id="@+id/password"
-                                                           android:layout_width="match_parent"
-                                                           android:layout_height="wrap_content">
-        <com.google.android.material.textfield.TextInputEditText android:layout_width="match_parent"
-                                                                 android:inputType="textPassword"
-                                                                 android:hint="@string/hint_password"
-                                                                 android:layout_height="wrap_content"/>
+    <LinearLayout android:id="@+id/container"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical">
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_email"
+                    android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_password"
+                    android:inputType="textPassword"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.button.MaterialButton
+                android:id="@+id/login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:layout_gravity="center_horizontal"/>
 
-    <com.google.android.material.textfield.TextInputLayout android:id="@+id/confirm_password"
-                                                           android:layout_width="match_parent"
-                                                           android:layout_height="wrap_content">
-        <com.google.android.material.textfield.TextInputEditText android:layout_width="match_parent"
-                                                                 android:inputType="textPassword"
-                                                                 android:hint="@string/hint_confirm_password"
-                                                                 android:layout_height="wrap_content"/>
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal">
+            <View android:layout_width="0dp"
+                  android:background="@android:color/darker_gray"
+                  android:layout_weight="1"
+                  android:layout_gravity="center"
+                  android:layout_height="1dp"/>
+            <TextView android:layout_width="wrap_content"
+                      android:text="OR"
+                      android:padding="8dp"
+                      android:gravity="center"
+                      android:layout_height="wrap_content"/>
+            <View android:layout_width="0dp"
+                  android:background="@android:color/darker_gray"
+                  android:layout_weight="1"
+                  android:layout_gravity="center"
+                  android:layout_height="1dp"/>
 
-    </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.button.MaterialButton
-            android:id="@+id/signup"
-            android:layout_width="wrap_content"
-            android:text="@string/btn_signup"
-            android:layout_gravity="center_horizontal"
-            android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:gravity="center_horizontal"
+                      android:orientation="vertical">
+            <TextView android:id="@+id/gmail"
+                      android:layout_width="wrap_content"
+                      android:padding="16dp"
+                      android:text="gmail"
+                      android:layout_height="wrap_content"/>
+
+            <TextView android:id="@+id/facebook"
+                      android:layout_width="wrap_content"
+                      android:padding="16dp"
+                      android:text="facebook"
+                      android:layout_height="wrap_content"/>
+
+            <TextView android:id="@+id/twitter"
+                      android:layout_width="wrap_content"
+                      android:padding="16dp"
+                      android:text="gmail"
+                      android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
