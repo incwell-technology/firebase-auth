@@ -72,16 +72,22 @@ class FirebaseLoginActivity : AppCompatActivity() {
                     var intent = Intent()
                     intent.putExtra(Constant.AUTH_USER, user)
                     notifyUser(getString(R.string.msg_signup_success))
-                    Handler().postDelayed({
+
+                    delay {
                         setResult(Activity.RESULT_OK, intent)
                         finish()
-                    }, 1000)
-
+                    }
                 } else {
                     notifyUser(it.exception?.message.toString())
                 }
             }
         }
+    }
+
+    private fun delay(execute: () -> Unit) {
+        Handler().postDelayed({
+            execute()
+        }, Constant.DELAY)
     }
 
     private fun notifyUser(message: String) {
