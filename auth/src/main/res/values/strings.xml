@@ -9,4 +9,5 @@
     <string name="err_msg_empty_field">%s can\'t be empty</string>
     <string name="msg_signup_success">Congratulation! you have successfully signup.</string>
     <string name="msg_login_success">Logged in successfully</string>
+    <string name="loading">loading..</string>
 </resources>
