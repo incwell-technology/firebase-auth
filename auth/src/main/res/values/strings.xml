@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">fireabase_auth</string>
+    <string name="hint_email">email</string>
+    <string name="hint_password">password</string>
+    <string name="hint_confirm_password">confirm password</string>
+    <string name="btn_signup">signup</string>
+    <string name="err_msg_invalid_email">Enter valid email address</string>
+    <string name="err_msg_invalid_password">Password doesn\'t match</string>
+    <string name="err_msg_empty_field">%s can\'t be empty</string>
+</resources>
