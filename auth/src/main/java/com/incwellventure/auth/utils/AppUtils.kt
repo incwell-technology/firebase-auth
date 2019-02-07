@@ -19,7 +19,7 @@ class AppUtils {
         }
 
         fun toUser(account: GoogleSignInAccount): AuthUser {
-            return AuthUser(account?.displayName, account?.email, account?.photoUrl.toString())
+            return AuthUser(account.displayName, account.email, account.photoUrl.toString())
         }
     }
 }

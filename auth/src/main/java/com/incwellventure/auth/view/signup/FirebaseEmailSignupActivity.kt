@@ -8,16 +8,16 @@ import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
 import android.util.Patterns
-import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.incwellventure.auth.AuthUser
 import com.incwellventure.auth.Constant
 import com.incwellventure.auth.R
 import com.incwellventure.auth.utils.SnackbarUtils.Companion.notifyUser
+import com.incwellventure.auth.view.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_firebase_email_signup.*
 
-class FirebaseEmailSignupActivity : AppCompatActivity() {
+class FirebaseEmailSignupActivity : BaseActivity() {
     private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,11 +60,14 @@ class FirebaseEmailSignupActivity : AppCompatActivity() {
             }
         }
 
+
         signup.setOnClickListener {
+            showProgressDialog()
             auth.createUserWithEmailAndPassword(
                 email.editText?.text.toString().trim(),
                 password.editText?.text.toString().trim()
             ).addOnCompleteListener {
+                hideProgressDialog()
                 if (it.isSuccessful) {
                     var user = AuthUser(
                         auth.currentUser?.displayName,

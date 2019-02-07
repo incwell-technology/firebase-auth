@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="WhiteAccent" parent="Theme.MaterialComponents.NoActionBar">
-        <!--<item name="colorAccent">@android:color/white</item>-->
+    <style name="AppLightTheme" parent="Theme.MaterialComponents.NoActionBar">
         <item name="colorControlActivated">@android:color/white</item>
         <item name="colorControlHighlight">@android:color/white</item>
         <item name="android:textColorHint">@android:color/white</item>

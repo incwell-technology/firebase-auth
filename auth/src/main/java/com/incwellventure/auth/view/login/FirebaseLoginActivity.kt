@@ -48,6 +48,7 @@ class FirebaseLoginActivity : BaseActivity() {
 
         auth = FirebaseAuth.getInstance()
         callbackManager = CallbackManager.Factory.create()
+        login.isEnabled = false
 
         var root = container
         val childCount = container.childCount
@@ -81,26 +82,30 @@ class FirebaseLoginActivity : BaseActivity() {
         }
 
         login.setOnClickListener {
-            auth.signInWithEmailAndPassword(
-                email.editText?.text.toString().trim(),
-                password.editText?.text.toString().trim()
-            ).addOnCompleteListener {
-                if (it.isSuccessful) {
-                    var user = AuthUser(
-                        auth.currentUser?.displayName,
-                        auth.currentUser?.email,
-                        auth.currentUser?.photoUrl.toString()
-                    )
-                    var intent = Intent()
-                    intent.putExtra(Constant.AUTH_USER, user)
-                    notifyUser(this, getString(R.string.msg_login_success))
+            if (isValid()) {
+                showProgressDialog()
+                auth.signInWithEmailAndPassword(
+                    email.editText?.text.toString().trim(),
+                    password.editText?.text.toString().trim()
+                ).addOnCompleteListener {
+                    hideProgressDialog()
+                    if (it.isSuccessful) {
+                        var user = AuthUser(
+                            auth.currentUser?.displayName,
+                            auth.currentUser?.email,
+                            auth.currentUser?.photoUrl.toString()
+                        )
+                        var intent = Intent()
+                        intent.putExtra(Constant.AUTH_USER, user)
+                        notifyUser(this, getString(R.string.msg_login_success))
 
-                    delay {
-                        setResult(Activity.RESULT_OK, intent)
-                        finish()
+                        delay {
+                            setResult(Activity.RESULT_OK, intent)
+                            finish()
+                        }
+                    } else {
+                        notifyUser(this, it.exception?.message.toString())
                     }
-                } else {
-                    notifyUser(this, it.exception?.message.toString())
                 }
             }
         }
@@ -198,7 +203,6 @@ class FirebaseLoginActivity : BaseActivity() {
                         baseContext, "Authentication failed.",
                         Toast.LENGTH_SHORT
                     ).show()
-                    //updateUI(null)
                 }
                 hideProgressDialog()
             }
