@@ -33,6 +33,7 @@ import com.incwellventure.auth.R
 import com.incwellventure.auth.utils.AppUtils
 import com.incwellventure.auth.utils.SnackbarUtils.Companion.notifyUser
 import com.incwellventure.auth.view.base.BaseActivity
+import com.incwellventure.auth.view.signup.FirebaseEmailSignupActivity
 import kotlinx.android.synthetic.main.activity_firebase_login.*
 
 class FirebaseLoginActivity : BaseActivity() {
@@ -132,6 +133,12 @@ class FirebaseLoginActivity : BaseActivity() {
                 }
 
             })
+        }
+
+
+
+        email_signup.setOnClickListener {
+            startActivity(Intent(this, FirebaseEmailSignupActivity::class.java))
         }
     }
 

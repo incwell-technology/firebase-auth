@@ -99,8 +99,6 @@
                    android:src="@drawable/ic_at"
                    android:layout_margin="16dp"
                    android:layout_height="@dimen/dimen_8x6"/>
-
-
     </LinearLayout>
 
 </LinearLayout>
