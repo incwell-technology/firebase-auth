@@ -5,7 +5,7 @@
     <application>
         <activity android:name=".view.login.FirebaseLoginActivity" android:theme="@style/WhiteAccent">
         </activity>
-        <activity android:name=".view.signup.FirebaseEmailSignupActivity">
+        <activity android:name=".view.signup.FirebaseEmailSignupActivity" android:theme="@style/WhiteAccent">
         </activity>
 
         <meta-data android:name="com.facebook.sdk.ApplicationId"
