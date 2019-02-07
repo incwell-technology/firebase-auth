@@ -3,9 +3,9 @@
           package="com.incwellventure.auth">
     <uses-permission android:name="android.permission.INTERNET"/>
     <application>
-        <activity android:name=".view.login.FirebaseLoginActivity" android:theme="@style/WhiteAccent">
+        <activity android:name=".view.login.FirebaseLoginActivity" android:theme="@style/AppLightTheme">
         </activity>
-        <activity android:name=".view.signup.FirebaseEmailSignupActivity" android:theme="@style/WhiteAccent">
+        <activity android:name=".view.signup.FirebaseEmailSignupActivity" android:theme="@style/AppLightTheme">
         </activity>
 
         <meta-data android:name="com.facebook.sdk.ApplicationId"
