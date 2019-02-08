@@ -226,7 +226,6 @@ class FirebaseLoginActivity : BaseActivity() {
         return isValidEmail(email.editText!!.text.trim().toString()) && isValidPassword()
     }
 
-
     private fun isValidPassword(): Boolean {
         return !password.editText?.text.toString().trim().isNullOrEmpty()
     }
