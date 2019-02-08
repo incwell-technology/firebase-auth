@@ -5,14 +5,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
-import android.text.TextUtils
 import android.text.TextWatcher
-import android.util.Patterns
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.incwellventure.auth.AuthUser
 import com.incwellventure.auth.Constant
 import com.incwellventure.auth.R
+import com.incwellventure.auth.utils.AppUtils.Companion.isValidEmail
 import com.incwellventure.auth.utils.SnackbarUtils.Companion.notifyUser
 import com.incwellventure.auth.view.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_firebase_email_signup.*
@@ -49,7 +48,7 @@ class FirebaseEmailSignupActivity : BaseActivity() {
                         }
 
                         when (textInputLayout.id) {
-                            email.id -> if (!isValidEmail()) email.error = getString(R.string.err_msg_invalid_email)
+                            email.id -> if (!isValidEmail(email.editText?.text.toString().trim())) email.error = getString(R.string.err_msg_invalid_email)
                             confirm_password.id -> if (!isValidPassword()) confirm_password.error =
                                 getString(R.string.err_msg_invalid_password)
                         }
@@ -100,13 +99,9 @@ class FirebaseEmailSignupActivity : BaseActivity() {
     }
 
     private fun isValid(): Boolean {
-        return isValidEmail() && isValidPassword()
+        return isValidEmail(email.editText?.text.toString().trim()) && isValidPassword()
     }
 
-    private fun isValidEmail(): Boolean {
-        return !TextUtils.isEmpty(email.editText?.text.toString().trim()) &&
-                Patterns.EMAIL_ADDRESS.matcher(email.editText?.text.toString().trim()).matches()
-    }
 
     private fun isValidPassword(): Boolean {
         return password.editText?.text.toString().trim() == confirm_password.editText?.text.toString().trim()

@@ -5,10 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
-import android.text.TextUtils
 import android.text.TextWatcher
 import android.util.Log
-import android.util.Patterns
 import android.widget.Toast
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
@@ -31,6 +29,7 @@ import com.incwellventure.auth.Constant
 import com.incwellventure.auth.Constant.Companion.RC_SIGN_IN
 import com.incwellventure.auth.R
 import com.incwellventure.auth.utils.AppUtils
+import com.incwellventure.auth.utils.AppUtils.Companion.isValidEmail
 import com.incwellventure.auth.utils.SnackbarUtils.Companion.notifyUser
 import com.incwellventure.auth.view.base.BaseActivity
 import com.incwellventure.auth.view.password.FirebaseForgotPasswordActivity
@@ -72,7 +71,7 @@ class FirebaseLoginActivity : BaseActivity() {
                                     textInputLayout.hint.toString()
                                 )
                         }
-                        if (textInputLayout.id == email.id && !isValidEmail()) {
+                        if (textInputLayout.id == email.id && !isValidEmail(email.editText!!.text.trim().toString())) {
                             textInputLayout.error = getString(R.string.err_msg_invalid_email)
                         }
                         enableLogin()
@@ -224,16 +223,11 @@ class FirebaseLoginActivity : BaseActivity() {
     }
 
     private fun isValid(): Boolean {
-        return isValidEmail() && isValidPassword()
+        return isValidEmail(email.editText!!.text.trim().toString()) && isValidPassword()
     }
 
-
-    private fun isValidEmail(): Boolean {
-        return !email.editText?.text.toString().trim().isNullOrEmpty() &&
-                Patterns.EMAIL_ADDRESS.matcher(email.editText?.text.toString().trim()).matches()
-    }
 
     private fun isValidPassword(): Boolean {
-        return !TextUtils.isEmpty(password.editText?.text.toString().trim())
+        return !password.editText?.text.toString().trim().isNullOrEmpty()
     }
 }
