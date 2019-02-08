@@ -9,12 +9,10 @@
                   android:windowSoftInputMode="adjustResize"/>
         <activity
                 android:name=".view.login.FirebaseLoginActivity"
-                android:windowSoftInputMode="adjustResize"
-                android:theme="@style/AppLightTheme"/>
+                android:windowSoftInputMode="adjustResize"/>
         <activity
                 android:name=".view.signup.FirebaseEmailSignupActivity"
-                android:windowSoftInputMode="adjustResize"
-                android:theme="@style/AppLightTheme"/>
+                android:windowSoftInputMode="adjustResize"/>
 
         <meta-data
                 android:name="com.facebook.sdk.ApplicationId"

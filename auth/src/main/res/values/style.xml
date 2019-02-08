@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppLightTheme" parent="Theme.MaterialComponents.NoActionBar">
+    <style name="TextInputLayoutStyle" parent="Widget.Design.TextInputLayout">
         <item name="colorControlActivated">@android:color/white</item>
         <item name="colorControlHighlight">@android:color/white</item>
         <item name="android:textColorHint">@android:color/white</item>
@@ -8,11 +8,5 @@
         <item name="colorControlNormal">@android:color/white</item>
         <item name="android:textColorPrimary">@android:color/white</item>
         <item name="android:windowBackground">@android:color/white</item>
-    </style>
-    <style name="AuthTheme" parent="Theme.MaterialComponents.NoActionBar">
-
-    </style>
-    <style name="AuthTheme.Button" parent="Widget.MaterialComponents.Button.TextButton">
-        <item name="android:buttonCornerRadius">18dp</item>
     </style>
 </resources>

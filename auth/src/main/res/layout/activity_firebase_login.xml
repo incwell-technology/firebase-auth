@@ -11,6 +11,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="0dp"
                   android:layout_weight="5"
+                  android:theme="@style/TextInputLayoutStyle"
                   android:background="@drawable/ic_background"
                   android:gravity="center"
                   android:orientation="vertical">
@@ -55,7 +56,6 @@
                 android:text="Login"
                 android:layout_marginTop="8dp"
                 android:textColor="?colorAccent"
-                style="@style/AuthTheme.Button"
                 app:cornerRadius="18dp"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
