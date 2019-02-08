@@ -16,22 +16,24 @@ Add it in your root build.gradle at the end of repositories:
     }
    }
 ```
-Step 2.
-Add the dependency
+Step 2.Add the dependency
 ```gradle
    implementation 'com.github.khadkarajesh:firebase-auth:v0.1.0-alpha'
 ```
 Step 3.
 ```kotlin
-   class App : Application(){
+   class App : Application()
+   {
     override fun onCreate() {
         super.onCreate()
         Auth.init(this, "Web client ID from firebase console")
     }
-}
+   }
 ```
 Step 4.
-Keep google-services.json in app/ directory
+Keep ```kotlin
+google-services.json 
+``` in app/ directory
 
 Step 5.
 ```kotlin
