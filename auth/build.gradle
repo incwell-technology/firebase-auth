@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.github.dcendents.android-maven'
 
 android {
     compileSdkVersion 28
@@ -26,10 +27,12 @@ android {
 buildscript {
     dependencies {
         classpath 'com.google.gms:google-services:4.2.0'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
     }
     repositories {
         google()
         jcenter()
+        mavenCentral()
     }
 }
 
