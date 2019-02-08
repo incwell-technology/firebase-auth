@@ -2,8 +2,8 @@
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent" android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".view.login.FirebaseLoginActivity">
 
@@ -55,6 +55,10 @@
                 android:text="Login"
                 android:layout_marginTop="8dp"
                 android:textColor="?colorAccent"
+                style="@style/AuthTheme.Button"
+                app:cornerRadius="18dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
                 android:backgroundTint="@android:color/white"
                 android:layout_gravity="center_horizontal"/>
 

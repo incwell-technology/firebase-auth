@@ -9,4 +9,10 @@
         <item name="android:textColorPrimary">@android:color/white</item>
         <item name="android:windowBackground">@android:color/white</item>
     </style>
+    <style name="AuthTheme" parent="Theme.MaterialComponents.NoActionBar">
+
+    </style>
+    <style name="AuthTheme.Button" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:buttonCornerRadius">18dp</item>
+    </style>
 </resources>
