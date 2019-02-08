@@ -31,9 +31,7 @@ Step 3.
    }
 ```
 Step 4.
-Keep ```kotlin
-google-services.json 
-``` in app/ directory
+Keep ``` google-services.json ``` in app/ directory
 
 Step 5.
 ```kotlin
