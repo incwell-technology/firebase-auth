@@ -2,6 +2,8 @@
 Library contains the following features:
 1. Authentication using email
 2. Authentication using social media(facebook, gmail)
+3. Forgot password
+4. User logout
 
 # To get a Git project into your build:
 
