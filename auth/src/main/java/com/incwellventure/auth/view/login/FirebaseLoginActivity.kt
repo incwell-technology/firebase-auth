@@ -83,6 +83,7 @@ class FirebaseLoginActivity : BaseActivity() {
 
         login.setOnClickListener {
             if (isValid()) {
+                hideKeyboard(window.decorView)
                 showProgressDialog()
                 auth.signInWithEmailAndPassword(
                     email.editText?.text.toString().trim(),

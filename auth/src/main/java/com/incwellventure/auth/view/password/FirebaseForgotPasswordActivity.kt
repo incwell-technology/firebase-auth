@@ -33,6 +33,7 @@ class FirebaseForgotPasswordActivity : BaseActivity() {
         })
 
         send.setOnClickListener {
+            hideKeyboard(window.decorView)
             showProgressDialog()
             FirebaseAuth.getInstance()
                 .sendPasswordResetEmail(email.editText?.text!!.trim().toString())
