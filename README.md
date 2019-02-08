@@ -46,4 +46,10 @@ in app level build.gradle
 dependencies {}
 apply plugin: 'com.google.gms.google-services'
 ```
+
+Step 7. in strings.xml 
+```xml
+<string name="facebook_app_id">your_app_id</string>
+<string name="fb_login_protocol_scheme">your_login_protocal_scheme</string>
+```
  
