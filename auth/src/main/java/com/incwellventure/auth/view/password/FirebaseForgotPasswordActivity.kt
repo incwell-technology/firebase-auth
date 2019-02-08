@@ -39,7 +39,7 @@ class FirebaseForgotPasswordActivity : BaseActivity() {
                 .addOnCompleteListener {
                     hideProgressDialog()
                     if (it.isSuccessful) {
-                        notifyUser(this, "Password reset link has been sent to your email")
+                        notifyUser(this, getString(R.string.msg_success_password_reset_link_sent))
                     } else {
                         notifyUser(this, it.exception!!.localizedMessage)
                     }
