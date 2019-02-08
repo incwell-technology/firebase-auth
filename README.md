@@ -7,6 +7,7 @@ Library contains the following features:
 
 # To get a Git project into your build:
 
+Step 1.
 Add it in your root build.gradle at the end of repositories:
 ```gradle
    allprojects {
@@ -15,7 +16,32 @@ Add it in your root build.gradle at the end of repositories:
     }
    }
 ```
+Step 2.
 Add the dependency
 ```gradle
    implementation 'com.github.khadkarajesh:firebase-auth:v0.1.0-alpha'
 ```
+Step 3.
+```kotlin
+   class App : Application(){
+    override fun onCreate() {
+        super.onCreate()
+        Auth.init(this, "Web client ID from firebase console")
+    }
+}
+```
+Step 4.
+Keep google-services.json in app/ directory
+
+Step 5. 
+dependencies {
+        classpath 'com.google.gms:google-services:4.0.1'
+ }
+ 
+Step 6.
+in app level build.gradle
+```kotlin
+   dependencies {}
+   apply plugin: 'com.google.gms.google-services'
+```
+ 
