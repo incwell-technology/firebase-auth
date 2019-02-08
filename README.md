@@ -33,15 +33,17 @@ Step 3.
 Step 4.
 Keep google-services.json in app/ directory
 
-Step 5. 
+Step 5.
+```kotlin
 dependencies {
-        classpath 'com.google.gms:google-services:4.0.1'
- }
+   classpath 'com.google.gms:google-services:4.0.1'
+}
+```
  
 Step 6.
 in app level build.gradle
 ```kotlin
-   dependencies {}
-   apply plugin: 'com.google.gms.google-services'
+dependencies {}
+apply plugin: 'com.google.gms.google-services'
 ```
  
