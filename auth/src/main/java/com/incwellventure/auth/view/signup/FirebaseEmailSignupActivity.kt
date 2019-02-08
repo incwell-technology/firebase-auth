@@ -61,6 +61,7 @@ class FirebaseEmailSignupActivity : BaseActivity() {
 
 
         signup.setOnClickListener {
+            hideKeyboard(window.decorView)
             showProgressDialog()
             auth.createUserWithEmailAndPassword(
                 email.editText?.text.toString().trim(),
