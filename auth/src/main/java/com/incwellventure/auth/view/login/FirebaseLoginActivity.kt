@@ -33,6 +33,7 @@ import com.incwellventure.auth.R
 import com.incwellventure.auth.utils.AppUtils
 import com.incwellventure.auth.utils.SnackbarUtils.Companion.notifyUser
 import com.incwellventure.auth.view.base.BaseActivity
+import com.incwellventure.auth.view.password.FirebaseForgotPasswordActivity
 import com.incwellventure.auth.view.signup.FirebaseEmailSignupActivity
 import kotlinx.android.synthetic.main.activity_firebase_login.*
 
@@ -145,6 +146,10 @@ class FirebaseLoginActivity : BaseActivity() {
         email_signup.setOnClickListener {
             startActivity(Intent(this, FirebaseEmailSignupActivity::class.java))
         }
+
+        forget_password.setOnClickListener {
+            startActivity(Intent(this, FirebaseForgotPasswordActivity::class.java))
+        }
     }
 
     private fun signIn() {
@@ -224,7 +229,7 @@ class FirebaseLoginActivity : BaseActivity() {
 
 
     private fun isValidEmail(): Boolean {
-        return !TextUtils.isEmpty(email.editText?.text.toString().trim()) &&
+        return !email.editText?.text.toString().trim().isNullOrEmpty() &&
                 Patterns.EMAIL_ADDRESS.matcher(email.editText?.text.toString().trim()).matches()
     }
 
