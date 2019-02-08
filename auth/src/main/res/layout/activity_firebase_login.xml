@@ -93,11 +93,6 @@
                    android:layout_margin="16dp"
                    android:layout_height="@dimen/dimen_8x6"/>
 
-        <ImageView android:id="@+id/twitter"
-                   android:layout_width="@dimen/dimen_8x6"
-                   android:src="@drawable/ic_twitter"
-                   android:layout_margin="16dp"
-                   android:layout_height="@dimen/dimen_8x6"/>
         <ImageView android:id="@+id/email_signup"
                    android:layout_width="@dimen/dimen_8x6"
                    android:src="@drawable/ic_at"
