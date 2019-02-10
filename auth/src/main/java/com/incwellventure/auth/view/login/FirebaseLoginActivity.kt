@@ -142,7 +142,7 @@ class FirebaseLoginActivity : BaseActivity() {
 
 
         email_signup.setOnClickListener {
-            startActivity(Intent(this, FirebaseEmailSignupActivity::class.java))
+            FirebaseEmailSignupActivity.start(this)
         }
 
         forget_password.setOnClickListener {
@@ -166,6 +166,11 @@ class FirebaseLoginActivity : BaseActivity() {
             } catch (e: ApiException) {
                 notifyUser(this, e.localizedMessage)
             }
+        }
+
+        if (requestCode == FirebaseEmailSignupActivity.REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            setResult(Activity.RESULT_OK, data)
+            finish()
         }
     }
 
@@ -220,5 +225,12 @@ class FirebaseLoginActivity : BaseActivity() {
 
     private fun isValidPassword(): Boolean {
         return !password.editText?.text.toString().trim().isNullOrEmpty()
+    }
+
+    companion object {
+        fun start(context: Activity, requestCode: Int) {
+            var intent = Intent(context, FirebaseLoginActivity::class.java)
+            context.startActivityForResult(intent, requestCode)
+        }
     }
 }
