@@ -1,4 +1,4 @@
-# firebase-auth [![](https://jitpack.io/v/khadkarajesh/firebase-auth.svg)](https://jitpack.io/#khadkarajesh/firebase-auth)
+# firebase-auth [![](https://jitpack.io/v/incwell-technology/firebase-auth.svg)](https://jitpack.io/#incwell-technology/firebase-auth)
 Library contains the following features:
 1. Authentication using email
 2. Authentication using social media(facebook, gmail)
@@ -18,7 +18,7 @@ Add it in your root build.gradle at the end of repositories:
 ```
 Step 2. Add the dependency
 ```gradle
-   implementation 'com.github.khadkarajesh:firebase-auth:v0.1.0-alpha'
+   implementation 'com.github.incwell-technology:firebase-auth:v0.1.1-alpha'
 ```
 Step 3.
 ```kotlin
