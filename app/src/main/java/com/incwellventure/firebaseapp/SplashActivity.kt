@@ -17,7 +17,7 @@ class SplashActivity : AppCompatActivity() {
         if (FireBaseAuth.getUser() == null) {
             FirebaseLoginActivity.start(this, 201)
         } else {
-            lunchActivity(FireBaseAuth.getUser())
+            lunchActivity(FireBaseAuth.getUser()!!)
         }
     }
 

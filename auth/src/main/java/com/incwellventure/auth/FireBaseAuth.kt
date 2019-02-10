@@ -19,8 +19,9 @@ class FireBaseAuth : Application() {
             AppEventsLogger.activateApp(context)
         }
 
-        fun getUser(): AuthUser {
-            return AppUtils.toUser(FirebaseAuth.getInstance().currentUser!!)
+        fun getUser(): AuthUser? {
+            return if (FirebaseAuth.getInstance().currentUser == null) null
+            else AppUtils.toUser(FirebaseAuth.getInstance().currentUser!!)
         }
 
         fun logout() {
