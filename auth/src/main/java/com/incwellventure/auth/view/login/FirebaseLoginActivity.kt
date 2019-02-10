@@ -21,10 +21,10 @@ import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import com.incwellventure.auth.Auth
 import com.incwellventure.auth.AuthUser
 import com.incwellventure.auth.Constant
 import com.incwellventure.auth.Constant.Companion.RC_SIGN_IN
+import com.incwellventure.auth.FireBaseAuth
 import com.incwellventure.auth.R
 import com.incwellventure.auth.utils.AppUtils
 import com.incwellventure.auth.utils.AppUtils.Companion.isValidEmail
@@ -111,7 +111,7 @@ class FirebaseLoginActivity : BaseActivity() {
 
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(Auth.webClientKey)
+            .requestIdToken(FireBaseAuth.webClientKey)
             .requestEmail()
             .build()
 
