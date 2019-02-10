@@ -48,7 +48,8 @@ class FirebaseEmailSignupActivity : BaseActivity() {
                         }
 
                         when (textInputLayout.id) {
-                            email.id -> if (!isValidEmail(email.editText?.text.toString().trim())) email.error = getString(R.string.err_msg_invalid_email)
+                            email.id -> if (!isValidEmail(email.editText?.text.toString().trim())) email.error =
+                                getString(R.string.err_msg_invalid_email)
                             confirm_password.id -> if (!isValidPassword()) confirm_password.error =
                                 getString(R.string.err_msg_invalid_password)
                         }
@@ -74,14 +75,13 @@ class FirebaseEmailSignupActivity : BaseActivity() {
                         auth.currentUser?.email,
                         auth.currentUser?.photoUrl.toString()
                     )
-                    var intent = Intent()
-                    intent.putExtra(Constant.AUTH_USER, user)
+                    var bundle = Bundle()
+                    bundle.putParcelable(Constant.AUTH_USER, user)
+                    intent.putExtras(bundle)
                     notifyUser(this, getString(R.string.msg_signup_success))
 
-                    delay {
-                        setResult(Activity.RESULT_OK, intent)
-                        finish()
-                    }
+                    setResult(Activity.RESULT_OK, intent)
+                    finish()
                 } else {
                     notifyUser(this, it.exception?.message.toString())
                 }
@@ -106,5 +106,13 @@ class FirebaseEmailSignupActivity : BaseActivity() {
 
     private fun isValidPassword(): Boolean {
         return password.editText?.text.toString().trim() == confirm_password.editText?.text.toString().trim()
+    }
+
+    companion object {
+        const val REQUEST_CODE = 301
+        fun start(context: Activity) {
+            var intent = Intent(context, FirebaseEmailSignupActivity::class.java)
+            context.startActivityForResult(intent, REQUEST_CODE)
+        }
     }
 }
