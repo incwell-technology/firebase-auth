@@ -233,4 +233,9 @@ class FirebaseLoginActivity : BaseActivity() {
             context.startActivityForResult(intent, requestCode)
         }
     }
+
+    override fun onBackPressed() {
+        this.finishAffinity()
+        super.onBackPressed()
+    }
 }
