@@ -123,7 +123,7 @@ class FirebaseLoginActivity : BaseActivity() {
 
         facebook.setOnClickListener {
             var loginManager = LoginManager.getInstance()
-            loginManager.logInWithReadPermissions(this, listOf("email", "public_profile"))
+            loginManager.logInWithReadPermissions(this, listOf("email", "public_profile", "user_friends"))
             loginManager.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
                 override fun onSuccess(result: LoginResult?) {
                     handleFacebookAccessToken(token = result!!.accessToken)
