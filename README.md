@@ -54,4 +54,4 @@ Step 7. in strings.xml
 ```
  
  # firebase-auth is part of
-<img src="https://github.com/incwell-technology/firebase-auth/blob/master/ohs.jpg?raw=true" width="100px;"/><br /><sub> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<b>[OHS](https://play.google.com/store/apps/details?id=com.onehousesolution.ohs)</b></sub> <br />
+<img src="https://github.com/incwell-technology/firebase-auth/blob/master/lib-user/ohs.jpg?raw=true" width="100px;"/><br /><sub> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<b>[OHS](https://play.google.com/store/apps/details?id=com.onehousesolution.ohs)</b></sub> <br />
